@@ -1,4 +1,8 @@
-/* === STYLE GÉNÉRAL === */
+/* === RESET & GLOBAL === */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     background: linear-gradient(180deg, #f6f8fb 0%, #fff 100%);
@@ -8,18 +12,14 @@ body {
     padding-bottom: 40px;
 }
 
-* {
-    box-sizing: border-box;
-}
 
+/* === HEADER === */
 header {
-    background: url(../images/ciel.jpg);
-    background-size: cover;
+    background: url(../images/ciel.jpg) center/cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #fff;
+    text-align: center;
     padding: 20px 0;
 }
 
@@ -30,16 +30,20 @@ header p {
 }
 
 .logo img {
-    height: 350px;
+    width: 70%;
+    max-width: 250px;
+    height: auto;
     margin-bottom: 10px;
-
 }
 
+
+/* === LAYOUT CONTAINER === */
 .container {
     margin: 20px;
 }
 
-/* === CARTES TONNELLES === */
+
+/* === CARDS TONNELLES === */
 .tonnelles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -66,13 +70,9 @@ header p {
     border-radius: 8px;
 }
 
-.card h3 {
-    margin: 0;
-}
-
-.card p {
-    margin: 0;
-    font-size: 14px;
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card .text {
@@ -93,14 +93,8 @@ header p {
     cursor: pointer;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.1);
-}
 
 /* === SERVICES === */
-/* Section services */
-
 .titre-service h4 {
     text-align: center;
     text-decoration: underline;
@@ -114,21 +108,17 @@ header p {
     margin: 50px 0;
 }
 
-
-
 .service-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    /* espace entre icône et texte */
     max-width: 220px;
     text-align: center;
 }
 
 .service-icon {
     font-size: 60px;
-    /* taille agrandie */
     color: #1976d2;
 }
 
@@ -138,26 +128,8 @@ header p {
     line-height: 1.4;
 }
 
-/* Responsive pour mobile */
-@media (max-width: 600px) {
-    .services {
-        flex-direction: column;
-        gap: 25px;
-        margin: 30px 0;
-    }
 
-    .service-icon {
-        font-size: 50px;
-        /* légèrement plus petit sur mobile */
-    }
-
-    .service-details {
-        font-size: 14px;
-    }
-}
-
-
-/* === SLIDER === */
+/* === PRESENTATION (SLIDER + TEXTE) === */
 .presentation {
     display: flex;
     justify-content: center;
@@ -167,10 +139,12 @@ header p {
     margin-bottom: 50px;
 }
 
+/* === SLIDER === */
 .slider {
     position: relative;
-    width: 500px;
-    height: 400px;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 5/4;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -182,8 +156,8 @@ header p {
 }
 
 .slide {
-    min-width: 500px;
-    height: 400px;
+    min-width: 100%;
+    height: 100%;
 }
 
 .slide img {
@@ -210,10 +184,6 @@ header p {
     align-items: center;
 }
 
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-}
-
 .nav-btn.prev {
     left: 10px;
 }
@@ -222,12 +192,17 @@ header p {
     right: 10px;
 }
 
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
 .message {
     max-width: 400px;
     text-align: center;
     font-size: 18px;
     color: #1976d2;
 }
+
 
 /* === LIGHTBOX === */
 .lightbox {
@@ -253,10 +228,12 @@ header p {
 
 .close {
     position: absolute;
+    top: 5%;
+    right: 5%;
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 10px 16px;
     border-radius: 8px;
     cursor: pointer;
@@ -272,41 +249,13 @@ header p {
     top: 50%;
 }
 
-.close {
-    top: 5%;
-    right: 5%;
-    font-size: 2.5rem;
-}
-
 .close:hover,
 .nav:hover {
     background: rgba(255, 255, 255, 0.4);
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
-    .slider {
-        width: 100%;
-        height: 250px;
-    }
 
-    .slide {
-        min-width: 100%;
-        height: 250px;
-    }
-
-    .message {
-        max-width: 100%;
-        font-size: 16px;
-    }
-
-    .services {
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-
-/* Footer */
+/* === FOOTER === */
 footer {
     text-align: center;
     margin-top: 40px;
@@ -323,25 +272,19 @@ footer {
     padding: 20px;
 }
 
-.contact h3 {
-    text-decoration: underline;
-}
-
 .contact-logo img {
     width: 250px;
-}
-
-.contact-item img {
-    width: 30px;
 }
 
 .contact-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
+.contact-item img {
+    width: 30px;
+}
 
 footer a {
     color: #1976d2;
@@ -352,18 +295,49 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive pour petits écrans */
-@media (max-width: 600px) {
-    .legal {
-        margin: 20px;
-        padding: 15px;
-    }
 
-    .legal h2 {
+/* === RESPONSIVE (MOBILE ≤ 600px) === */
+@media (max-width: 600px) {
+
+    header p {
         font-size: 20px;
     }
 
-    .legal p {
+    .logo img {
+        width: 70%;
+        max-width: 220px;
+    }
+
+    .services {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service-icon {
+        font-size: 50px;
+    }
+
+    .service-details {
         font-size: 14px;
+    }
+
+    .slider {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .message {
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .contact {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .contact-logo img {
+        width: 180px;
     }
 }
